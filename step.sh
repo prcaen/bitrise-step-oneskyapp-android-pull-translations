@@ -12,12 +12,11 @@ hash () {
 timestamp=$(date +%s)
 dev_hash=$( hash "$timestamp$secret_key" )
 
-locales=`wget --method GET --header 'cache-control: no-cache' --output-document - "https://platform.api.onesky.io/1/projects/$app_id/languages?api_key=$public_key&timestamp=$timestamp&dev_hash=$dev_hash" | jq '.data[].locale'`
+locales=`wget --method GET --header 'cache-control: no-cache' --output-document - "https://platform.api.onesky.io/1/projects/$app_id/languages?api_key=$public_key&timestamp=$timestamp&dev_hash=$dev_hash" | jq -r '.data[].locale'`
 
-for rawLocale in $locales; do
+for locale in $locales; do
   timestamp=$(date +%s)
   dev_hash=$( hash "$timestamp$secret_key" )
-  locale=$(echo $rawLocale | jq -r)
 
   if [ $locale == $default_locale ]; then
     folder=$(echo "$output_dir/values")
