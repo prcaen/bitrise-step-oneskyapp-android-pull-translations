@@ -5,7 +5,7 @@ hash () {
   if [ "$(uname)" == "Darwin" ]; then
     echo -n "$1" | md5
   else
-    echo -n "$1" | md5sum
+    echo -n "$1" | md5sum | awk '{print $1}'
   fi
 }
 
