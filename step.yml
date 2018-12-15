@@ -1,0 +1,71 @@
+title: Pull Android translations from an OneSkyApp project
+summary: Pull Android translations from an OneSkyApp project
+description: |-
+  List all translations available on OneSkyApp and pull them into the current project.
+website: https://github.com/prcaen/bitrise-step-oneskyapp-pull-translations
+source_code_url: https://github.com/prcaen/bitrise-step-oneskyapp-pull-translations
+support_url: https://github.com/prcaen/bitrise-step-oneskyapp-pull-translations/issues
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+type_tags:
+  - utility
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+deps:
+  brew:
+  - name: git
+  - name: wget
+  - name: jq
+  apt_get:
+  - name: git
+  - name: wget
+  - name: jq
+toolkit:
+  bash:
+    entry_file: step.sh
+inputs:
+  - secret_key: "$ONESKYAPP_SECRET_KEY"
+    opts:
+      title: "Your own API Secret key"
+      is_expand: true
+      is_dont_change_value: true
+      is_required: true
+      is_sensitive: false
+  - public_key: "$ONESKYAPP_PUBLIC_KEY"
+    opts:
+      title: "Your own API Public key"
+      is_expand: true
+      is_dont_change_value: true
+      is_required: true
+      is_sensitive: false
+  - app_id: "$ONESKYAPP_APP_ID"
+    opts:
+      title: "Project ID"
+      is_expand: true
+      is_dont_change_value: false
+      is_required: true
+      is_sensitive: false
+  - source_file_name: "strings.xml"
+    opts:
+      title: "The name of the source file."
+      is_expand: true
+      is_dont_change_value: false
+      is_required: true
+      is_sensitive: false
+  - default_locale: "en"
+    opts:
+      title: "Locale used as default in your OneSkyApp project"
+      is_expand: true
+      is_dont_change_value: false
+      is_required: true
+      is_sensitive: false
+  - output_dir: "app/src/main/res/"
+    opts:
+      title: "Translations output directory"
+      is_expand: true
+      is_dont_change_value: false
+      is_required: true
+      is_sensitive: false
