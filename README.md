@@ -18,4 +18,4 @@ Project id can be found at your url: https://YOUR_SLUG.oneskyapp.com/admin/proje
 
 ![](static/android_app.png)
 
-$ Get `ONESKYAPP_APP_ID` from the value in parenthesis and without the hashtag. Here: `123456789`
+Get `ONESKYAPP_APP_ID` from the value in parenthesis and without the hashtag. Here: `123456789`
