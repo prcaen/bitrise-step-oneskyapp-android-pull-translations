@@ -12,7 +12,7 @@ hash () {
 timestamp=$(date +%s)
 dev_hash=$( hash "$timestamp$secret_key" )
 
-locales=`wget --method GET --header 'cache-control: no-cache' --output-document - "https://platform.api.onesky.io/1/projects/$app_id/languages?api_key=$public_key&timestamp=$timestamp&dev_hash=$dev_hash" | jq -r '.data[].locale'`
+locales=`wget --method GET --header 'cache-control: no-cache' --output-document - "https://platform.api.onesky.io/1/projects/$app_id/languages?api_key=$public_key&timestamp=$timestamp&dev_hash=$dev_hash" | jq -r '.data[].code'`
 
 for locale in $locales; do
   timestamp=$(date +%s)
