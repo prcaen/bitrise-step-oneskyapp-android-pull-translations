@@ -31,14 +31,14 @@ inputs:
     opts:
       title: "Your own API Secret key"
       is_expand: true
-      is_dont_change_value: true
+      is_dont_change_value: false
       is_required: true
-      is_sensitive: false
+      is_sensitive: true
   - public_key: "$ONESKYAPP_PUBLIC_KEY"
     opts:
       title: "Your own API Public key"
       is_expand: true
-      is_dont_change_value: true
+      is_dont_change_value: false
       is_required: true
       is_sensitive: false
   - app_id: "$ONESKYAPP_APP_ID"
