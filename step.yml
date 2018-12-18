@@ -30,6 +30,8 @@ inputs:
   - secret_key: "$ONESKYAPP_SECRET_KEY"
     opts:
       title: "Your own API Secret key"
+      description: |
+        `Secret Key` given by OneSkyApp at the url: https://YOUR_SLUG.oneskyapp.com/admin/site/settings
       is_expand: true
       is_dont_change_value: false
       is_required: true
@@ -37,6 +39,8 @@ inputs:
   - public_key: "$ONESKYAPP_PUBLIC_KEY"
     opts:
       title: "Your own API Public key"
+      description: |
+        `Public Key` given by OneSkyApp at the url: https://YOUR_SLUG.oneskyapp.com/admin/site/settings
       is_expand: true
       is_dont_change_value: false
       is_required: true
@@ -44,6 +48,9 @@ inputs:
   - app_id: "$ONESKYAPP_APP_ID"
     opts:
       title: "Project ID"
+      description: |
+        `Project ID` given by OneSkyApp at the url: https://YOUR_SLUG.oneskyapp.com/admin/projects
+        The value in parenthesis and without the hashtag.
       is_expand: true
       is_dont_change_value: false
       is_required: true
@@ -51,13 +58,6 @@ inputs:
   - source_file_name: "strings.xml"
     opts:
       title: "The name of the source file."
-      is_expand: true
-      is_dont_change_value: false
-      is_required: true
-      is_sensitive: false
-  - default_locale: "en"
-    opts:
-      title: "Locale used as default in your OneSkyApp project"
       is_expand: true
       is_dont_change_value: false
       is_required: true
